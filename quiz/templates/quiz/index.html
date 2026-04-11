@@ -1,0 +1,10 @@
+{% extends 'quiz/base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<h1>Это страничка проекта про изучение биологии. </h1>
+<ul class="list-group">
+    <li class="list-group-item"><a href="{% url 'questions_list' %}">Просмотр всех вопросов</a></li>
+</ul>
+{% endblock %}

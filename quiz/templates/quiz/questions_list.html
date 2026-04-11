@@ -1,0 +1,23 @@
+{% extends 'quiz/base.html' %}
+
+{% block title %}Вопросы{% endblock %}
+
+{% block content %}
+<h1>Все вопросы</h1>
+<a href="{% url 'index' %}" class="btn btn-secondary mb-3">Назад</a>
+{% for q in questions %}
+<div class="card mb-3">
+    <div class="card-body">
+        <h5 class="card-title">{{ q.Question }}</h5>
+        <ul class="list-group">
+            {% if q.answer1 %}<li class="list-group-item {% if q.correct_answer == '1' %}bg-success text-white{% endif %}">{{ q.answer1 }}</li>{% endif %}
+            {% if q.answer2 %}<li class="list-group-item {% if q.correct_answer == '2' %}bg-success text-white{% endif %}">{{ q.answer2 }}</li>{% endif %}
+            {% if q.answer3 %}<li class="list-group-item {% if q.correct_answer == '3' %}bg-success text-white{% endif %}">{{ q.answer3 }}</li>{% endif %}
+            {% if q.answer4 %}<li class="list-group-item {% if q.correct_answer == '4' %}bg-success text-white{% endif %}">{{ q.answer4 }}</li>{% endif %}
+            {% if q.answer5 %}<li class="list-group-item {% if q.correct_answer == '5' %}bg-success text-white{% endif %}">{{ q.answer5 }}</li>{% endif %}
+            {% if q.answer6 %}<li class="list-group-item {% if q.correct_answer == '6' %}bg-success text-white{% endif %}">{{ q.answer6 }}</li>{% endif %}
+        </ul>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
