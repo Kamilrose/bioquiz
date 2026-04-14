@@ -1,0 +1,9 @@
+{% extends 'quiz/base.html' %}
+
+{% block title %}Тест завершен{% endblock %}
+
+{% block content %}
+<h1>Тест завершен</h1>
+<p>Ваш результат: {{ score }} из {{ total }}</p>
+<a href="{% url 'index' %}" class="btn btn-primary">На главную</a>
+{% endblock %}

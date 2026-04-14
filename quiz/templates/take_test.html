@@ -1,0 +1,42 @@
+{% extends 'quiz/base.html' %}
+
+{% block title %}Пройти тест{% endblock %}
+
+{% block content %}
+{% if question %}
+<h1>Вопрос {{ index }} из {{ total }}</h1>
+<a href="{% url 'index' %}" class="btn btn-secondary mb-3">Назад</a>
+<form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="quiz_total" value="{{ total }}">
+    <div class="mb-3">
+        <p>{{ question.Question }}</p>
+    </div>
+    {% for answer in answers %}
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="answer" id="answer{{ forloop.counter }}" value="{{ answer }}" required>
+        <label class="form-check-label" for="answer{{ forloop.counter }}">
+            {{ answer }}
+        </label>
+    </div>
+    {% endfor %}
+    <button type="submit" name="submit_answer" class="btn btn-primary">Ответить</button>
+    <button type="submit" name="end" class="btn btn-danger">Завершить тест</button>
+</form>
+{% else %}
+<h1>Начать тест</h1>
+<a href="{% url 'index' %}" class="btn btn-secondary mb-3">Назад</a>
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="name" class="form-label">Имя</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+    </div>
+    <button type="submit" name="start" class="btn btn-primary">Начать тест</button>
+</form>
+{% endif %}
+{% endblock %}
