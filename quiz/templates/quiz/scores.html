@@ -1,0 +1,28 @@
+{% extends 'quiz/base.html' %}
+
+{% block title %}Результаты{% endblock %}
+
+{% block content %}
+<h1>Результаты тестов</h1>
+<a href="{% url 'index' %}" class="btn btn-secondary mb-3">Назад</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Имя</th>
+            <th>Email</th>
+            <th>Попытка</th>
+            <th>Результат</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for r in results %}
+        <tr>
+            <td>{{ r.user_name }}</td>
+            <td>{{ r.user_email }}</td>
+            <td>{{ r.attempt }}</td>
+            <td>{{ r.score }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

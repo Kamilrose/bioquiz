@@ -6,5 +6,8 @@
 <h1>Это страничка проекта про изучение биологии. </h1>
 <ul class="list-group">
     <li class="list-group-item"><a href="{% url 'questions_list' %}">Просмотр всех вопросов</a></li>
+    <li class="list-group-item"><a href="{% url 'add_question' %}">Добавить новый вопрос</a></li>
+    <li class="list-group-item"><a href="{% url 'take_test' %}">Пройти тест</a></li>
+    <li class="list-group-item"><a href="{% url 'scores' %}">Результаты тестов</a></li>
 </ul>
 {% endblock %}
